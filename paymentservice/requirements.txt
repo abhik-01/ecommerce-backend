@@ -1,0 +1,14 @@
+Django==5.2.5
+djangorestframework==3.16.0
+PyJWT==2.10.1
+mysqlclient==2.2.7
+stripe==11.5.0
+razorpay==1.4.2
+setuptools==75.8.0
+django-cors-headers==4.7.0
+kafka-python-ng==2.2.2
+python-dotenv==1.1.0
+gunicorn==23.0.0
+pytest==8.3.5
+pytest-django==4.10.0
+pytest-mock==3.14.0

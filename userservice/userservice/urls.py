@@ -15,9 +15,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.http import JsonResponse
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from authservice.views import AuthViewSet, CustomTokenView
+
+
+def health(request):
+    return JsonResponse({'status': 'ok', 'service': 'userservice'})
 
 
 router = DefaultRouter()
@@ -25,6 +30,7 @@ router.register(r'auth', AuthViewSet, basename='auth')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('health/', health),
     path('', include(router.urls)),
     path('o/token/', CustomTokenView.as_view(), name='token'),
     path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
